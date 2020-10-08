@@ -22,7 +22,7 @@ export const NumberButton = ({id}) => {
     return(
         <button
         type="button"
-        class={className}
+        className={className}
         disabled={isDisabled}
         onClick={onNumberButtonClick}>
             {id}
