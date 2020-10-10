@@ -22,8 +22,7 @@ const betSlice = createSlice({
             const {newDrawCount} = action.payload;
             state.drawCount = newDrawCount;
         }
-    },
-    extraReducers: {}
+    }
 });
 
 export const {incrementBetStake, incrementDrawCount, updateBetStake, updateBetDrawCount} = betSlice.actions;

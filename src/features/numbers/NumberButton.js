@@ -4,18 +4,16 @@ import { selectNumberById, selectSelectedNumbers, updateNumberStatus } from './n
 
 export const NumberButton = ({id}) => {
     const number = useSelector(state => selectNumberById(state,id));
-    const [status, setStatus] = useState(number.status)
     const selectedNumbersCount = useSelector(selectSelectedNumbers);
     const dispatch = useDispatch();
-    const isDisabled = status === "normal" && selectedNumbersCount === 12;
+    const isDisabled = number.status === "normal" && selectedNumbersCount === 12;
     let className = "col-sm-1 border border-primary rounded-circle mw";
-    if (status === "selected") {
+    if (number.status === "selected") {
         className += " bg-yellow"
     }
 
     const onNumberButtonClick = (e) => {
-        const newStatus = status === "normal" ? "selected" : "normal"
-        setStatus(newStatus);
+        const newStatus = number.status === "normal" ? "selected" : "normal"
         dispatch(updateNumberStatus({id, newStatus}))
     }
 
