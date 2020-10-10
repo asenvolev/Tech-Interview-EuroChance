@@ -12,16 +12,14 @@ export const BetPanel = () => {
     console.log(betStakeInit)
     const dispatch = useDispatch();
 
-    const onBetStakeChange = e => {
-        const newStake = +e.target.value;
+    const onBetStakeChange = (newStake) => {
         if (isNaN(newStake)) {
             return
         }
         dispatch(updateBetStake({newStake}))
     }
 
-    const onBetDrawCountChange = e => {
-        const newDrawCount = +e.target.value;
+    const onBetDrawCountChange = (newDrawCount) => {
         if (isNaN(newDrawCount)) {
             return
         }
@@ -30,8 +28,8 @@ export const BetPanel = () => {
 
     return (
         <div>
-            <InputField objKey="betStake" value={betStakeInit} label={"Bet Stake"} decimalPlaces={2} onValueChange={onBetStakeChange} />
-            <InputField objKey="DrawCount" value={betDrawCountInit} label={"Draw Count"} decimalPlaces={0} onValueChange={onBetDrawCountChange} />
+            <InputField objKey="betStake" value={betStakeInit} label={"Bet Stake"} decimalPlaces={2} onValueChange={onBetStakeChange} withButtons={true} step={0.2}/>
+            <InputField objKey="DrawCount" value={betDrawCountInit} label={"Draw Count"} decimalPlaces={0} onValueChange={onBetDrawCountChange} withButtons={true} />
             <InputField objKey="betPrice" value={betPriceCount} label={"Bet Price"} decimalPlaces={2} disabled={true} />
         </div>
     )
