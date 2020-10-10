@@ -27,7 +27,7 @@ export const BetPanel = () => {
     }
 
     return (
-        <div>
+        <div className="betPanel">
             <InputField objKey="betStake" value={betStakeInit} label={"Bet Stake"} decimalPlaces={2} onValueChange={onBetStakeChange} withButtons={true} step={0.2}/>
             <InputField objKey="DrawCount" value={betDrawCountInit} label={"Draw Count"} decimalPlaces={0} onValueChange={onBetDrawCountChange} withButtons={true} />
             <InputField objKey="betPrice" value={betPriceCount} label={"Bet Price"} decimalPlaces={2} disabled={true} />

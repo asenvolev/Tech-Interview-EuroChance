@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNumberById, selectSelectedNumbers, updateNumberStatus } from './numbersSlice';
 
-export const NumberButton = ({id}) => {
+export const NumberButton = memo(({id}) => {
     const number = useSelector(state => selectNumberById(state,id));
     const selectedNumbersCount = useSelector(selectSelectedNumbers);
     const dispatch = useDispatch();
     const isDisabled = number.status === "normal" && selectedNumbersCount === 12;
-    let className = "col-sm-1 border border-primary rounded-circle mw";
+    let className = "numberButton";
     if (number.status === "selected") {
-        className += " bg-yellow"
+        className += " selected"
     }
 
     const onNumberButtonClick = (e) => {
@@ -26,4 +26,4 @@ export const NumberButton = ({id}) => {
             {id}
         </button>
     )
-}
+})

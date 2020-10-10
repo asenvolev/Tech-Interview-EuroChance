@@ -9,10 +9,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        
+      </header>
         <NumbersList />
         <BetPanel />
         <CommentsList />
-      </header>
     </div>
   );
 }

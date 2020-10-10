@@ -12,14 +12,11 @@ export const NumbersList = () => {
     ))
     
     return (
-        <section>
-            <div class="d-flex justify-content-center">
-                <div class="col-sm-5 d-flex align-content-center flex-wrap">
+            <div class="numbersList">
+                <div >
                     {content}
                 </div>
             </div>
-            
-        </section>
     )
 
 }
