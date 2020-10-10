@@ -3,6 +3,7 @@ import { client } from '../../api/client';
 
 export const getComments = createAsyncThunk('comments/getComments', async () =>{
     const response = await client.get('comments?postId=1');
+    console.log("aideeeee")
     return response;
 })
 
