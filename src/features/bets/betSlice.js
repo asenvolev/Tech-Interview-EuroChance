@@ -6,14 +6,6 @@ const betSlice = createSlice({
     name:"bet",
     initialState,
     reducers: {
-        incrementBetStake(state,action) {
-            const {amount} = action.payload;
-            state.betStake +=amount;
-        },
-        incrementDrawCount(state,action) {
-            const {amount} = action.payload;
-            state.drawCount +=amount;
-        },
         updateBetStake(state,action){
             const {newStake} = action.payload;
             state.betStake = newStake;

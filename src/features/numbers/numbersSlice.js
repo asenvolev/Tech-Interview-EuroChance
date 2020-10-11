@@ -36,4 +36,9 @@ export const selectSelectedNumbers = createSelector(
     (numbers) => numbers.filter(number => number.status === 'selected').length
 );
 
+export const selectIsNumberIdDisabled = createSelector(
+    [selectSelectedNumbers, selectNumberById],
+    (numbersLength, number) => number.status === "normal" && numbersLength === 12
+)
+
 export default numbersSlice.reducer;

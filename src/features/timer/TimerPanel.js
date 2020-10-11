@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCommentsStatus, getComments } from '../comments/commentsSlice';
 import { TimerForm } from './TimerForm';
 
-const COUNTDOWN_SECONDS = 5;
+const COUNTDOWN_SECONDS = 3*60;
 
 export const TimerPanel = () =>{
     const commentsStatus = useSelector(selectCommentsStatus);

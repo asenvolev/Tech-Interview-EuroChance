@@ -1,12 +1,11 @@
-import React, { memo, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectNumberById, selectSelectedNumbers, updateNumberStatus } from './numbersSlice';
+import { selectIsNumberIdDisabled, selectNumberById, updateNumberStatus } from './numbersSlice';
 
-export const NumberButton = memo(({id}) => {
+export const NumberButton = ({id}) => {
     const number = useSelector(state => selectNumberById(state,id));
-    const selectedNumbersCount = useSelector(selectSelectedNumbers);
+    const isDisabled = useSelector(state => selectIsNumberIdDisabled(state,id))
     const dispatch = useDispatch();
-    const isDisabled = number.status === "normal" && selectedNumbersCount === 12;
     let className = "numberButton";
     if (number.status === "selected") {
         className += " selected"
@@ -26,4 +25,4 @@ export const NumberButton = memo(({id}) => {
             {id}
         </button>
     )
-})
+}
