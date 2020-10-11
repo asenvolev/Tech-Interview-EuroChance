@@ -26,7 +26,6 @@ export const TimerPanel = () =>{
     }, [seconds,commentsStatus, dispatch])
 
     const tick = () => {
-        console.log(seconds);
         setSeconds(seconds -1);
     }
 

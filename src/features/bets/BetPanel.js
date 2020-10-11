@@ -8,8 +8,7 @@ export const BetPanel = () => {
     const betStakeInit = useSelector(selectBetStake);
     const betDrawCountInit = useSelector(selectDrawCount);
     const selectedNumbersCount = useSelector(selectSelectedNumbers); 
-    const betPriceCount = useSelector(state => selectBetPriceBySelectedNumbersCount(state,selectedNumbersCount))
-    console.log(betStakeInit)
+    const betPriceCount = useSelector(state => selectBetPriceBySelectedNumbersCount(state,selectedNumbersCount));
     const dispatch = useDispatch();
 
     const onBetStakeChange = (newStake) => {

@@ -1,15 +1,12 @@
-import { createEntityAdapter, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createEntityAdapter, createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import { client } from '../../api/client';
 
 export const getComments = createAsyncThunk('comments/getComments', async () =>{
     const response = await client.get('comments?postId=1');
-    console.log("aideeeee")
     return response;
 })
 
-const commentsAdapter = createEntityAdapter({
-    sortComparer: (a, b) => b - a
-});
+const commentsAdapter = createEntityAdapter();
 
 const initialState = commentsAdapter.getInitialState({
     status: 'idle',
@@ -43,6 +40,9 @@ export const {
     selectIds: selectCommentsIds
 } = commentsAdapter.getSelectors((state) => state.comments)
 
-
+export const selectNotMoreThanTenComments = createSelector(
+    [selectCommentsIds],
+    (comments) => comments.length > 10 ? comments.slice(0,10) : comments
+)
 
 export default commentsSlice.reducer; 
