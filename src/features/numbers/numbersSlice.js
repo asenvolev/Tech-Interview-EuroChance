@@ -1,14 +1,23 @@
 const { createSlice, createEntityAdapter, createSelector } = require("@reduxjs/toolkit");
 
 const numbersAdapter = createEntityAdapter();
-const initialState = numbersAdapter.getInitialState()
+const initialState = numbersAdapter.getInitialState();
 
 const numbersSlice = createSlice({
     name: 'numbers',
     initialState,
     reducers: {
-        setNumbers(state,action){
-            numbersAdapter.upsertMany(state, Array.from({length: 80}, (val, key) => { return {id:key, status:"normal"}}))
+        setNumbers:{
+            reducer(state, action) {
+                numbersAdapter.upsertMany(state, action.payload)
+            },
+            prepare(){
+                let numbers = Array.from({length: 81}, (val, key) => { return {id:key, status:"normal"}});
+                numbers.shift();
+                return {
+                    payload:numbers
+                }
+            }
         },
         updateNumberStatus(state,action){
             const {id, newStatus} = action.payload;

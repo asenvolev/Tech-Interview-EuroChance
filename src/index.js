@@ -6,9 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import store from './app/store';
 import { Provider } from 'react-redux';
-import { setNumbers } from './features/numbers/numbersSlice';
-
-store.dispatch(setNumbers());
 
 ReactDOM.render(
   <React.StrictMode>
