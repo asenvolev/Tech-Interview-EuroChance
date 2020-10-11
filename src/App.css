@@ -4,7 +4,7 @@
 
 .numbersList {
   float: left;
-  width: 64%;
+  width: 75%;
   height: 50%;
 }
 
@@ -15,7 +15,7 @@
 }
 
 div.betPanel input {
-  width:20%
+  width:25%
 }
 
 .numberButton {

@@ -13,9 +13,7 @@ export const NumbersList = () => {
     
     return (
             <div class="numbersList">
-                <div >
-                    {content}
-                </div>
+                {content}
             </div>
     )
 

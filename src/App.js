@@ -4,6 +4,7 @@ import './App.css';
 import { NumbersList } from './features/numbers/NumbersList';
 import { BetPanel } from './features/bets/BetPanel';
 import { CommentsList } from './features/comments/CommentsList';
+import { TimerPanel } from './features/timer/TimerPanel';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       </header>
         <NumbersList />
         <BetPanel />
+        <TimerPanel />
         <CommentsList />
     </div>
   );
